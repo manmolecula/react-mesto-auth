@@ -1,0 +1,9 @@
+.profile__profile-title{
+    display: flex;
+    align-items: baseline;
+}
+@media screen and (max-width: 608px) {
+    .profile__profile-title {
+        justify-content: center;
+    }
+}

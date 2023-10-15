@@ -1,0 +1,9 @@
+.elements__subtitle{
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 900;
+    padding: 25px 20px 27px 21px;
+}

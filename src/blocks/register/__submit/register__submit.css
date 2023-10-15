@@ -1,0 +1,10 @@
+.register__submit {
+    margin-top: 200px;
+    padding: 14px 84px;
+    color: #000;
+    font-size: 18px;
+    font-weight: 400;
+    background-color: white;
+    border-radius: 2px;
+    cursor: pointer;
+}

@@ -1,0 +1,8 @@
+.register__link {
+    text-decoration: none;
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 6px;
+    cursor: pointer;
+}

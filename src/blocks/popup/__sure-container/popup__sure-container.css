@@ -1,0 +1,11 @@
+.popup__sure-container{
+    position: relative;
+    border-radius: 10px;
+    background-color: white;
+    padding: 34px 36px 36px 36px;
+}
+@media screen and (max-width:520px) {
+    .popup__container {
+        padding: 25px 22px;
+    }
+}

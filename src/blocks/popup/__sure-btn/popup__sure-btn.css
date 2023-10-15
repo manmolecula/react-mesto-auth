@@ -1,0 +1,21 @@
+.popup__sure-btn{
+    padding: 18px 168px;
+    font-size: 18px;
+    line-height: 21.78px;
+    font-weight: 400;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+.popup__sure-btn:hover{
+    opacity: .8;
+}
+@media screen and (max-width:520px) {
+    .popup__sure-btn {
+        font-size: 14px;
+        line-height: 16.94px;
+        padding: 14px 82px;
+    }
+}
