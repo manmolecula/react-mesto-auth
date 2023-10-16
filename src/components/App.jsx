@@ -65,31 +65,33 @@ function App() {
           navigate('/')
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
   }
 
-  const handleRegister = ( password, email ) => {
+  const handleRegister = (password, email) => {
     return auth.register(password, email)
-    .then((res) => {
-      if (res.data) {
+      .then((res) => {
+        if (res.data) {
+          setIsTooltipOpen(true);
+          setIsTooltipSuccess(true);
+          navigate('/sign-in');
+        }
+      })
+      .catch((err) => {
         setIsTooltipOpen(true);
-        setIsTooltipSuccess(true);
-        navigate('/sign-in');
-      }
-    })
-    .catch((err) => {
-      setIsTooltipOpen(true);
-      setIsTooltipSuccess(false);
-      console.log(err);
-    })
+        setIsTooltipSuccess(false);
+        console.log(err);
+      })
+      .finally(() => {
+
+      });
   }
 
-  const handleExit = () =>{
+  const handleExit = () => {
     localStorage.removeItem('jwt');
     localStorage.removeItem('email');
     setLoggedIn(false);
   }
-
 
   useEffect(() => {
     api.getUserInfo()
@@ -102,7 +104,7 @@ function App() {
         setCards(data);
       })
       .catch(err => console.log(err));
-  }, []);
+  }, [loggedIn]);
 
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
@@ -118,7 +120,10 @@ function App() {
       .then((data) => {
         setCurrentUser(data);
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log(err))
+      .finally(() => {
+        setIsEditProfilePopupOpen(false);
+      });
   }
 
   function handleCardDelete(card) {
@@ -136,7 +141,10 @@ function App() {
       .then((res) => {
         setCurrentUser(res);
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log(err))
+      .finally(() => {
+        setIsEditAvatarPopupOpen(false);
+      });
   }
 
   function handleAddPlaceSubmit(name, link) {
@@ -144,7 +152,10 @@ function App() {
       .then((newCard) => {
         setCards([newCard, ...cards]);
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log(err))
+      .finally(() => {
+        setIsAddPlacePopupOpen(false);
+      });
   }
 
   function handleEditAvatarClick() {
@@ -164,8 +175,8 @@ function App() {
   }
 
   function closeAllPopups() {
-    setIsEditAvatarPopupOpen(false);
     setIsEditProfilePopupOpen(false);
+    setIsEditAvatarPopupOpen(false);
     setIsAddPlacePopupOpen(false);
     setSelectedCard(null);
     setIsTooltipOpen(false);
@@ -179,7 +190,7 @@ function App() {
           <Header onExit={handleExit} />
           <Routes>
             <Route path="/sign-up" element={<Register onRegister={handleRegister} />} />
-            <Route path="/sign-in" element={<Login onLogin={handleLogin} />}  />
+            <Route path="/sign-in" element={<Login onLogin={handleLogin} />} />
             <Route path="/" element={loggedIn ?
               <ProtectedRouteElement
                 loggedIn={loggedIn}

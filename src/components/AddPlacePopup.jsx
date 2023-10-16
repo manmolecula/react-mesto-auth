@@ -18,7 +18,6 @@ function AddPlacePopup(props) {
             name,
             link,
         });
-        props.onClose();
     }
 
     function handleChangeName(e) {

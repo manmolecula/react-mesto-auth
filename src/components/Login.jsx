@@ -36,7 +36,7 @@ function Login(props) {
                 <input
                     className="login__input" required onChange={handleChange} value={formValue.email} type="email" name="email" placeholder="Email" minLength="2" maxLength="40" />
                 <input
-                    className="login__input" required onChange={handleChange} value={formValue.password} type="text" name="password" placeholder="Пароль" minLength="2" maxLength="40" />
+                    className="login__input" required onChange={handleChange} value={formValue.password} type="password" name="password" placeholder="Пароль" minLength="2" maxLength="40" />
                 <button onClick={handleSubmit} className="login__submit" type="submit">
                     Вход
                 </button>

@@ -28,7 +28,7 @@ function Register(props) {
                 <input
                     className="register__input" required onChange={handleChange} value={formValue.email} type="email" name="email" placeholder="Email" minLength="2" maxLength="40" />
                 <input
-                    className="register__input" required onChange={handleChange} value={formValue.password} type="text" name="password" placeholder="Пароль" minLength="2" maxLength="40" />
+                    className="register__input" required onChange={handleChange} value={formValue.password} type="password" name="password" placeholder="Пароль" minLength="2" maxLength="40" />
                 <button className="register__submit" type="submit">
                     Зарегистрироваться
                 </button>
