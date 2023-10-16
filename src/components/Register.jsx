@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Link } from 'react-router-dom';
-function Register() {
+import { Link } from 'react-router-dom'
+function Register(props) {
 
     const [formValue, setFormValue] = useState({
         password: '',
@@ -15,15 +15,20 @@ function Register() {
         });
     };
 
+    function handleSubmit(e) {
+        e.preventDefault();
+        props.onRegister(formValue.password, formValue.email)
+    }
+
     return (
 
         <div className="register">
             <h2 className="register__title">Регистрация</h2>
-            <form className="register__form">
+            <form onSubmit={handleSubmit} className="register__form">
                 <input
-                    className="register__input" required onChange={handleChange} value={formValue.email}  type="email" name="email" placeholder="Email" minLength="2" maxLength="20"/>
+                    className="register__input" required onChange={handleChange} value={formValue.email} type="email" name="email" placeholder="Email" minLength="2" maxLength="40" />
                 <input
-                    className="register__input" required onChange={handleChange} value={formValue.password} type="text" name="password" placeholder="Пароль" minLength="2" maxLength="20"/>
+                    className="register__input" required onChange={handleChange} value={formValue.password} type="text" name="password" placeholder="Пароль" minLength="2" maxLength="40" />
                 <button className="register__submit" type="submit">
                     Зарегистрироваться
                 </button>
