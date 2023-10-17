@@ -82,9 +82,6 @@ function App() {
         setIsTooltipSuccess(false);
         console.log(err);
       })
-      .finally(() => {
-
-      });
   }
 
   const handleExit = () => {
@@ -94,7 +91,8 @@ function App() {
   }
 
   useEffect(() => {
-    api.getUserInfo()
+    if(loggedIn){
+      api.getUserInfo()
       .then((data) => {
         setCurrentUser(data);
       })
@@ -104,6 +102,7 @@ function App() {
         setCards(data);
       })
       .catch(err => console.log(err));
+    }
   }, [loggedIn]);
 
   function handleCardLike(card) {
