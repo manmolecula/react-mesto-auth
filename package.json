@@ -42,5 +42,5 @@
   "devDependencies": {
     "gh-pages": "^6.0.0"
   },
-  "homepage": "https://manmolecula.github.io/react-mesto-auth"
+  "homepage": "https://manmolecula.github.io/sing-in"
 }
